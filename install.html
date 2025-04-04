@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #e9ecef;
+            background-color: #0c0c0c;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -16,7 +16,7 @@
         }
 
         .container {
-            background-color: #fff;
+            background-color: #141414;
             border-radius: 12px;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
             width: 90%;
@@ -28,8 +28,8 @@
         }
 
         .header {
-            background-color: #4CAF50;
-            color: white;
+            background-color: #285c2a;
+            color: rgb(12, 12, 12);
             padding: 20px;
             text-align: center;
             font-size: 26px;
@@ -39,12 +39,12 @@
         }
 
         .input-container {
-            padding: 20px;
-            background-color: #f8f9fa;
+            padding: 10px;
+            background-color: #0f0f0f;
             display: flex;
-            gap: 15px;
+            gap: 5px;
             justify-content: center;
-            margin-bottom: 20px;
+            margin-bottom: 5px;
         }
 
         input[type="text"] {
@@ -54,12 +54,13 @@
             border-radius: 8px;
             font-size: 14px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #031527;
         }
 
         .code-container {
             max-height: 60vh;
             overflow-y: auto;
-            background-color: #ffffff;
+            background-color: #000000;
             border: 1px solid #ddd;
             padding: 20px;
             border-radius: 8px;
@@ -70,20 +71,31 @@
             padding: 15px;
             border: 1px solid #ddd;
             border-radius: 8px;
-            background-color: #f8f9fa;
+            background-color: #031527;
             transition: background-color 0.3s;
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
             cursor: pointer;
+            color: #ccc;
         }
 
         .code-line:hover {
-            background-color: #da5b20;
+            background-color: #066445;
         }
 
         .highlighted {
-            background-color: #e6b115 !important;
+            background-color: #695108 !important;
             color: #000 !important;
         }
+
+        .custombutton{
+            background-color: #02395e;
+            padding: 8px;
+            margin-right: 10px;
+            border-color: #02233d;
+            font-weight: 500;
+            color: #ccc;
+        }
+
     </style>
 </head>
 <body>
@@ -103,7 +115,12 @@
             <input id="inputText8" type="text" placeholder="user3">
             <input id="inputText9" type="text" placeholder="IP">
         </div>
-
+        <div class="input-container">
+                <a href="#sup"> <button class="custombutton"> Supervisor Restart </button> </a>
+                <a href="#front"> <button class="custombutton"> Front-end Start </button> </a>
+                <a href="#label1"> <button class="custombutton"> Hello </button> </a>
+        </div>
+        
 
         <div class="code-container">
 
@@ -342,14 +359,14 @@ startsecs=0
 redirect_stderr=true
 stopwaitsecs=3600</pre></div>
             <div class="code-line" onclick="insertVariables(event)"><pre>cd</pre></div>
-            <div class="code-line" onclick="insertVariables(event)"><pre>sudo supervisorctl update</pre></div>
+            <div class="code-line" onclick="insertVariables(event)" id="sup"><pre>sudo supervisorctl update</pre></div>
             <div class="code-line" onclick="insertVariables(event)"><pre>sudo supervisorctl reload</pre></div>
             <div class="code-line" onclick="insertVariables(event)"><pre>sudo supervisorctl status</pre></div>
             <div class="code-line" onclick="insertVariables(event)"><pre>sudo apt update</pre></div>
             <div class="code-line" onclick="insertVariables(event)"><pre>sudo apt install redis-server</pre></div>
             <div class="code-line" onclick="insertVariables(event)"><pre>sudo systemctl start redis.service</pre></div>
             <div class="code-line" onclick="insertVariables(event)"><pre>sudo systemctl status redis.service</pre></div>
-            <div style="color:#f8f9fa; background-color:#4CAF50; border: #000;text-align: center; padding: 30px; margin: 20px;font-weight: 1000;">FrontEnd Installation</div>
+            <div style="color:#f8f9fa; background-color:#4CAF50; border: #000;text-align: center; padding: 30px; margin: 20px;font-weight: 1000;" id="fronttitle">FrontEnd Installation</div>
             <div class="code-line" onclick="insertVariables(event)"><pre>cd /var/www/</pre></div>
             <div class="code-line" onclick="insertVariables(event)"><pre>git clone -b core-main https://gitlab.com/itech-repo/cpocket-exchange/cpocket-exchange-in-nextjs.git u1/</pre></div>
             <div class="code-line" onclick="insertVariables(event)"><pre>cd</pre></div>
@@ -417,14 +434,14 @@ NEXT_PUBLIC_APPLE_REDIRECT_URI = "https://u3/signin"</pre></div>
             <div class="code-line" onclick="insertVariables(event)"><pre>systemctl start pm2-root.service</pre></div>
             <div class="code-line" onclick="insertVariables(event)"><pre>yarn install</pre></div>
             <div class="code-line" onclick="insertVariables(event)"><pre>yarn build</pre></div>
-            <div class="code-line" onclick="insertVariables(event)"><pre>pm2 start yarn --interpreter bash --name FrontEnd -- start</pre></div>
+            <div class="code-line" onclick="insertVariables(event)" id="front"><pre>pm2 start yarn --interpreter bash --name FrontEnd -- start</pre></div>
             <div class="code-line" onclick="insertVariables(event)"><pre>pm2 list</pre></div>
             <div class="code-line" onclick="insertVariables(event)"><pre>cd /var/www/</pre></div>
             <div class="code-line" onclick="insertVariables(event)"><pre>git clone -b core-main https://gitlab.com/itech-repo/cpocket-exchange/evm-wallet.git node-wallet/</pre></div>
             <div class="code-line" onclick="insertVariables(event)"><pre>cd node-wallet/</pre></div>
             <div class="code-line" onclick="insertVariables(event)"><pre>cp .env.example .env</pre></div>
             <div class="code-line" onclick="insertVariables(event)"><pre>yarn install</pre></div>
-            <div class="code-line" onclick="insertVariables(event)"><pre>pm2 start yarn --interpreter bash --name NodeEnd -- start -p 8934</pre></div>
+            <div class="code-line" onclick="insertVariables(event)" ><pre>pm2 start yarn --interpreter bash --name NodeEnd -- start -p 8934</pre></div>
             <div class="code-line" onclick="insertVariables(event)"><pre>pm2 list</pre></div>
             <div class="code-line" onclick="insertVariables(event)"><pre>curl localhost:8934</pre></div>
             <div class="code-line" onclick="insertVariables(event)"><pre>pm2 save</pre></div>
