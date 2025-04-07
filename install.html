@@ -119,7 +119,7 @@
         <div class="input-container">
                 <a href="#sup"> <button class="custombutton"> Supervisor Restart </button> </a>
                 <a href="#front"> <button class="custombutton"> Front-end Start </button> </a>
-                <a href="#label1"> <button class="custombutton"> Hello </button> </a>
+                <a href="#node"> <button class="custombutton"> Node-end Start </button> </a>
         </div>
         
 
@@ -442,7 +442,7 @@ NEXT_PUBLIC_APPLE_REDIRECT_URI = "https://u3/signin"</pre></div>
             <div class="code-line" onclick="insertVariables(event)"><pre>cd node-wallet/</pre></div>
             <div class="code-line" onclick="insertVariables(event)"><pre>cp .env.example .env</pre></div>
             <div class="code-line" onclick="insertVariables(event)"><pre>yarn install</pre></div>
-            <div class="code-line" onclick="insertVariables(event)" ><pre>pm2 start yarn --interpreter bash --name NodeEnd -- start -p 8934</pre></div>
+            <div class="code-line" onclick="insertVariables(event)" id="node"><pre>pm2 start yarn --interpreter bash --name NodeEnd -- start -p 8934</pre></div>
             <div class="code-line" onclick="insertVariables(event)"><pre>pm2 list</pre></div>
             <div class="code-line" onclick="insertVariables(event)"><pre>curl localhost:8934</pre></div>
             <div class="code-line" onclick="insertVariables(event)"><pre>pm2 save</pre></div>
