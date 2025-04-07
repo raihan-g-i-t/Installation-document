@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installation Documentation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0c0c0c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #141414;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: #285c2a;
+            color: rgb(12, 12, 12);
+            padding: 20px;
+            text-align: center;
+            font-size: 26px;
+            font-weight: bold;
+            border-bottom: 2px solid #3e8e41;
+            border-radius: 8px;
+        }
+
+        .input-container {
+            padding: 10px;
+            background-color: #0f0f0f;
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+            margin-bottom: 5px;
+        }
+        
+        input[type="text"] {
+            width: 45%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #031527;
+            color: white;
+        }
+
+        .code-container {
+            max-height: 60vh;
+            overflow-y: auto;
+            background-color: #000000;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .code-line {
+            margin-bottom: 15px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #031527;
+            transition: background-color 0.3s;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            color: #ccc;
+        }
+
+        .code-line:hover {
+            background-color: #066445;
+        }
+
+        .highlighted {
+            background-color: #695108 !important;
+            color: #000 !important;
+        }
+
+        .custombutton{
+            background-color: #02395e;
+            padding: 8px;
+            margin-right: 10px;
+            border-color: #02233d;
+            font-weight: 500;
+            color: #ccc;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Tradexpro Installation</div>
+        <div class="input-container">
+            <input id="inputText1" type="text" placeholder="Admin">
+
+            
+        </div>
+        <div class="input-container">
+            <input id="inputText2" type="text" placeholder="user">
+            <input id="inputText3" type="text" placeholder="IP">
+        </div>
+     
+        <div class="code-container">
+
+            <div class="code-line" onclick="insertVariables(event)">
+<pre>echo "====== Command number 1 ======"
+lsb_release -a
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 1 ======\e[0m"; exit 1; fi
+echo "====== Command number 2 ======"
+sudo apt update
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 4 ======\e[0m"; exit 1; fi
+echo "====== Command number 3 ======"
+sudo apt install nginx -y
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 7 ======\e[0m"; exit 1; fi
+echo "====== Command number 4 ======"
+sudo ufw status
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 10 ======\e[0m"; exit 1; fi
+echo "====== Command number 5 ======"
+sudo ufw app list
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 13 ======\e[0m"; exit 1; fi
+echo "====== Command number 6 ======"
+sudo ufw allow 'OpenSSH'
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 16 ======\e[0m"; exit 1; fi
+echo "====== Command number 7 ======"
+sudo ufw allow 'Nginx HTTP'
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 19 ======\e[0m"; exit 1; fi
+echo "====== Command number 8 ======"
+sudo ufw allow 'Nginx HTTPS'
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 22 ======\e[0m"; exit 1; fi
+echo "====== Command number 9 ======"
+sudo ufw enable -y
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 25 ======\e[0m"; exit 1; fi
+echo "====== Command number 10 ======"
+sudo ufw status
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 28 ======\e[0m"; exit 1; fi
+echo "====== Command number 11 ======"
+sudo apt install software-properties-common
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 31 ======\e[0m"; exit 1; fi
+echo "====== Command number 12 ======"
+sudo add-apt-repository -y ppa:ondrej/php
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 34 ======\e[0m"; exit 1; fi
+echo "====== Command number 13 ======"
+sudo apt update
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 37 ======\e[0m"; exit 1; fi
+echo "====== Command number 14 ======"
+sudo apt install --no-install-recommends php8.3 -y
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 40 ======\e[0m"; exit 1; fi
+echo "====== Command number 15 ======"
+php -v
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 43 ======\e[0m"; exit 1; fi
+echo "====== Command number 16 ======"
+sudo apt-get update
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 46 ======\e[0m"; exit 1; fi
+echo "====== Command number 17 ======"
+sudo apt-get install -y php8.3-fpm
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 49 ======\e[0m"; exit 1; fi
+echo "====== Command number 18 ======"
+sudo apt-get install -y php8.3-cli php8.3-common php8.3-mysql php8.3-bcmath php8.3-zip php8.3-gd php8.3-mbstring php8.3-curl php8.3-xml
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 52 ======\e[0m"; exit 1; fi
+echo "====== Command number 19 ======"
+sudo apt install mysql-server -y
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 55 ======\e[0m"; exit 1; fi
+echo "====== Command number 20 ======"
+mysql --version
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 58 ======\e[0m"; exit 1; fi
+echo "====== Command number 21 ======"
+sudo systemctl start mysql.service
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 61 ======\e[0m"; exit 1; fi
+echo "====== Command number 22 ======"
+mysql
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 64 ======\e[0m"; exit 1; fi
+echo "====== Command number 23 ======"
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Pass.321';
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 67 ======\e[0m"; exit 1; fi
+echo "====== Command number 24 ======"
+flush privileges;
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 70 ======\e[0m"; exit 1; fi
+echo "====== Command number 25 ======"
+create database exchange;
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 73 ======\e[0m"; exit 1; fi
+echo "====== Command number 26 ======"
+quit;
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 76 ======\e[0m"; exit 1; fi
+echo "====== Command number 27 ======"
+sudo apt install curl -y
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 79 ======\e[0m"; exit 1; fi
+echo "====== Command number 28 ======"
+sudo apt install -y php-cli unzip
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 82 ======\e[0m"; exit 1; fi
+echo "====== Command number 29 ======"
+curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 85 ======\e[0m"; exit 1; fi
+echo "====== Command number 30 ======"
+sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 88 ======\e[0m"; exit 1; fi
+echo "====== Command number 31 ======"
+sudo apt install supervisor -y
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 91 ======\e[0m"; exit 1; fi
+echo "====== Command number 32 ======"
+sudo apt install redis-server -y
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 94 ======\e[0m"; exit 1; fi
+echo "====== Command number 33 ======"
+sudo systemctl start redis.service
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 97 ======\e[0m"; exit 1; fi
+echo "====== Command number 34 ======"
+curl -fsSL https://deb.nodesource.com/setup_20.x -o nodesource_setup.sh
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 100 ======\e[0m"; exit 1; fi
+echo "====== Command number 35 ======"
+sudo -E bash nodesource_setup.sh
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 103 ======\e[0m"; exit 1; fi
+echo "====== Command number 36 ======"
+sudo apt-get install -y nodejs
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 106 ======\e[0m"; exit 1; fi
+echo "====== Command number 37 ======"
+node --version
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 109 ======\e[0m"; exit 1; fi
+echo "====== Command number 38 ======"
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 112 ======\e[0m"; exit 1; fi
+echo "====== Command number 39 ======"
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 115 ======\e[0m"; exit 1; fi
+echo "====== Command number 40 ======"
+sudo apt update
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 118 ======\e[0m"; exit 1; fi
+echo "====== Command number 41 ======"
+sudo apt install yarn
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 121 ======\e[0m"; exit 1; fi
+echo "====== Command number 42 ======"
+yarn --version
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 124 ======\e[0m"; exit 1; fi
+echo "====== Command number 43 ======"
+sudo npm install pm2 -g
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 127 ======\e[0m"; exit 1; fi
+echo "====== Command number 44 ======"
+pm2 startup
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 130 ======\e[0m"; exit 1; fi
+echo "====== Command number 45 ======"
+systemctl enable pm2-root.service
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 133 ======\e[0m"; exit 1; fi
+echo "====== Command number 46 ======"
+systemctl start pm2-root.service
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 136 ======\e[0m"; exit 1; fi
+echo "====== Command number 47 ======"
+cd /etc/nginx/sites-available/
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 139 ======\e[0m"; exit 1; fi
+echo "====== Command number 48 ======"
+sudo tee ad1 &gt; /dev/null &lt;&lt;EOF
+map $http_upgrade $type {
+    default "web";
+    websocket "ws";
+}
+server {
+    listen 80;
+        root /var/www/ad2/public;
+        index index.php index.html index.htm index.nginx-debian.html;
+        server_name ad3;
+
+#listen ip_here;
+
+
+location / {
+            try_files /nonexistent @$type;
+            }
+
+            location @web {
+                #fastcgi_pass unix:/does/not/exist;
+            try_files $uri $uri/ /index.php?$query_string;
+            }
+
+            location @ws {
+            proxy_pass             http://127.0.0.1:6006;
+            proxy_set_header Host  $host;
+            proxy_read_timeout     60;
+            proxy_connect_timeout  60;
+            proxy_redirect         off;
+
+            # Allow the use of websockets
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection 'upgrade';
+            proxy_set_header Host $host;
+            proxy_cache_bypass $http_upgrade;
+            }
+
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;
+        }
+
+        location ~ /\.ht {
+                deny all;
+        }
+
+}
+EOF
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 142 ======\e[0m"; exit 1; fi
+echo "====== Command number 49 ======"
+sudo tee u1 &gt; /dev/null &lt;&lt;EOF
+server {
+        root /var/www/u2/;
+        index index.php index.html index.htm index.nginx-debian.html;
+        server_name u3;
+
+        location / {
+            proxy_pass    http://127.0.0.1:3040;
+        }
+
+}
+EOF
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 194 ======\e[0m"; exit 1; fi
+echo "====== Command number 50 ======"
+ln -s /etc/nginx/sites-available/ad4 /etc/nginx/sites-enabled/
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 208 ======\e[0m"; exit 1; fi
+echo "====== Command number 51 ======"
+ln -s /etc/nginx/sites-available/u4 /etc/nginx/sites-enabled/
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 211 ======\e[0m"; exit 1; fi
+echo "====== Command number 52 ======"
+sudo service nginx reload
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 214 ======\e[0m"; exit 1; fi
+echo "====== Command number 53 ======"
+sudo systemctl restart nginx
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 217 ======\e[0m"; exit 1; fi
+echo "====== Command number 54 ======"
+sudo systemctl restart php8.3-fpm
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 220 ======\e[0m"; exit 1; fi
+echo "====== Command number 55 ======"
+cd /var/www/
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 223 ======\e[0m"; exit 1; fi
+echo "====== Command number 56 ======"
+git clone -b core-main https://gitlab.com/itech-repo/cpocket-exchange/cpocket-exchange-web.git ad5/
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 226 ======\e[0m"; exit 1; fi
+echo "====== Command number 57 ======"
+cd ad6/
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 229 ======\e[0m"; exit 1; fi
+echo "====== Command number 58 ======"
+sudo tee .env &gt; /dev/null &lt;&lt;EOF
+APP_NAME=Laravel
+APP_ENV=production
+APP_KEY=
+APP_DEBUG=false
+APP_MODE=live
+USER_API_SECRET_KEY=h0vWu6MkInNlWHJVfIXmHbIbC66cQvlbSUQI09Whbp
+
+APP_URL=https://ad7
+API_URL=https://ad8
+FRONTEND_URL=https://u5
+ALLOWED_IPS=ipname,
+
+LOG_CHANNEL=stack
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=exchange
+DB_USERNAME=root
+DB_PASSWORD=Pass.321
+
+BROADCAST_DRIVER=pusher
+CACHE_DRIVER=file
+QUEUE_CONNECTION=redis
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_DEFAULT_REGION=us-east-1
+AWS_BUCKET=
+
+
+PUSHER_APP_ID=test
+PUSHER_APP_KEY=test
+PUSHER_APP_SECRET=test
+PUSHER_APP_CLUSTER=mt1
+BROADCAST_PORT=6006
+
+MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+
+BITGO_TEST=live
+PUSHER_PRIVATE_CHANEL_NAME = tradexpro_private_chanel
+PUSHER_PUBLIC_CHANEL_NAME = tradexpro_public_chanel
+
+LOG_PRINT_ENABLE=1
+BOT_LOG_PRINT_ENABLE=0
+GACAWKV=false
+EOF
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 232 ======\e[0m"; exit 1; fi
+echo "====== Command number 59 ======"
+sudo update-alternatives --config php
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 296 ======\e[0m"; exit 1; fi
+echo "====== Command number 60 ======"
+COMPOSER_ALLOW_SUPERUSER=1 composer install --no-interaction
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 299 ======\e[0m"; exit 1; fi
+echo "====== Command number 61 ======"
+sudo chgrp -R www-data storage bootstrap/cache
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 302 ======\e[0m"; exit 1; fi
+echo "====== Command number 62 ======"
+sudo chmod -R ug+rwx storage bootstrap/cache
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 305 ======\e[0m"; exit 1; fi
+echo "====== Command number 63 ======"
+sudo chmod -R 777 public/uploaded_file/
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 308 ======\e[0m"; exit 1; fi
+echo "====== Command number 64 ======"
+php artisan key:generate
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 311 ======\e[0m"; exit 1; fi
+echo "====== Command number 65 ======"
+php artisan migrate --seed --force
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 314 ======\e[0m"; exit 1; fi
+echo "====== Command number 66 ======"
+php artisan passport:install
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 317 ======\e[0m"; exit 1; fi
+echo "====== Command number 67 ======"
+cd /etc/supervisor/conf.d/
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 320 ======\e[0m"; exit 1; fi
+echo "====== Command number 68 ======"
+sudo tee cron.conf &gt; /dev/null &lt;&lt;EOF
+[program:sockets]
+process_name=sockets
+directory=/var/www/ad9/
+command=php artisan websockets:serve --port=6006
+autostart=true
+autorestart=true
+startsecs=0
+redirect_stderr=true
+stopwaitsecs=3600
+stdout_logfile=/root/supervisor_log
+
+
+[program:scheduler]
+process_name=scheduler
+directory=/var/www/ad10/
+command=php artisan schedule:run
+autostart=true
+autorestart=true
+startsecs=0
+redirect_stderr=true
+stopwaitsecs=3600
+stderr_logfile=/var/log/supervisor/test.err.log
+stdout_logfile=/var/log/supervisor/test.out.log
+
+
+[program:horizon]
+process_name=horizon
+directory=/var/www/ad11/
+command=php artisan horizon
+autostart=true
+autorestart=true
+startsecs=0
+redirect_stderr=true
+stopwaitsecs=3600
+stdout_logfile=/root/supervisor_log
+
+
+[program:trade_price]
+process_name=trade_price
+directory=/var/www/ad12/
+command=php artisan trading:price-from-api
+autostart=true
+autorestart=true
+startsecs=0
+redirect_stderr=true
+stopwaitsecs=3600
+
+    
+[program:trade_bot]
+process_name=trade_bot
+directory=/var/www/ad13/
+command=php artisan trading:bot
+autostart=true
+autorestart=true
+startsecs=0
+redirect_stderr=true
+stopwaitsecs=3600
+EOF
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 323 ======\e[0m"; exit 1; fi
+echo "====== Command number 69 ======"
+sudo supervisorctl update
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 384 ======\e[0m"; exit 1; fi
+echo "====== Command number 70 ======"
+sudo supervisorctl reload
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 387 ======\e[0m"; exit 1; fi
+echo "====== Command number 71 ======"
+sudo supervisorctl status
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 390 ======\e[0m"; exit 1; fi
+echo "====== Command number 72 ======"
+cd /var/www/
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 393 ======\e[0m"; exit 1; fi
+echo "====== Command number 73 ======"
+git clone -b core-main https://gitlab.com/itech-repo/cpocket-exchange/cpocket-exchange-in-nextjs.git u6/
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 396 ======\e[0m"; exit 1; fi
+echo "====== Command number 74 ======"
+cd u7/
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 399 ======\e[0m"; exit 1; fi
+echo "====== Command number 75 ======"
+sudo tee cron.conf &gt; /dev/null &lt;&lt;EOF
+NEXT_PUBLIC_BASE_URL ='https://ad14'
+NEXT_PUBLIC_WS_URL = 'wss://ad15/app/test'
+NEXT_PUBLIC_HOST_SOCKET ="ad16"
+NEXT_PUBLIC_HOSTED_CLIENT_URL = 'https://u8/'
+NEXT_PUBLIC_SECRET_KEY="h0vWu6MkInNlWHJVfIXmHbIbC66cQvlbSUQI09Whbp"
+NEXT_PUBLIC_CRISP_ID="16ec5ccf-1e65-4a97-bac7-147137e085a0"
+NEXT_PUBLIC_APP_NAME="Your Application Name"
+NEXT_PUBLIC_FAVICON="YOUR FAVICON URL"
+NEXT_PUBLIC_PUBLISH_KEY = "your_key"
+
+NEXT_PUBLIC_STRIPE_SECRET_KEY= "your_key"
+NEXT_PUBLIC_PAYPAL_CLIENT_KEY="your_key"
+NEXT_PUBLIC_WSS_PORT="6006"
+
+NEXT_PUBLIC_SEO_TITLE = "Tradexpro is a Crypto Currency Exchange Platform."
+NEXT_PUBLIC_SEO_DES = "Tradexpro is a Crypto Currency Exchange Platform."
+NEXT_PUBLIC_SEO_KEYWORDS = "exchange,trading,spottrading,Crypto"
+
+NEXT_PUBLIC_FACEBOOK_APP_ID = "your_app_id"
+NEXT_PUBLIC_GOOGLE_CLIENT_ID = "your_client_id"
+NEXT_PUBLIC_APPLE_CLIENT_ID = "your_client_id"
+
+NEXT_PUBLIC_GOOGLE_REDIRECT_URI = "https://u9/signin"
+NEXT_PUBLIC_APPLE_REDIRECT_URI = "https://u10/signin"
+EOF
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 402 ======\e[0m"; exit 1; fi
+echo "====== Command number 76 ======"
+yarn install
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 430 ======\e[0m"; exit 1; fi
+echo "====== Command number 77 ======"
+yarn build
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 433 ======\e[0m"; exit 1; fi
+echo "====== Command number 78 ======"
+pm2 start yarn --interpreter bash --name FrontEnd -- start
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 436 ======\e[0m"; exit 1; fi
+echo "====== Command number 79 ======"
+pm2 list
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 439 ======\e[0m"; exit 1; fi
+echo "====== Command number 80 ======"
+cd /var/www/
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 442 ======\e[0m"; exit 1; fi
+echo "====== Command number 81 ======"
+git clone -b core-main https://gitlab.com/itech-repo/cpocket-exchange/evm-wallet.git node-wallet/
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 445 ======\e[0m"; exit 1; fi
+echo "====== Command number 82 ======"
+cd node-wallet/
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 448 ======\e[0m"; exit 1; fi
+echo "====== Command number 83 ======"
+cp .env.example .env
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 451 ======\e[0m"; exit 1; fi
+echo "====== Command number 84 ======"
+pm2 start yarn --interpreter bash --name NodeEnd -- start -p 8934
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 454 ======\e[0m"; exit 1; fi
+echo "====== Command number 85 ======"
+pm2 list
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 457 ======\e[0m"; exit 1; fi
+echo "====== Command number 86 ======"
+curl localhost:8934
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 460 ======\e[0m"; exit 1; fi
+echo "====== Command number 87 ======"
+pm2 save
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 463 ======\e[0m"; exit 1; fi
+echo "====== Command number 88 ======"
+cd
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 466 ======\e[0m"; exit 1; fi
+echo "====== Command number 89 ======"
+sudo apt install snapd
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 469 ======\e[0m"; exit 1; fi
+echo "====== Command number 90 ======"
+sudo snap install core; sudo snap refresh core
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 472 ======\e[0m"; exit 1; fi
+echo "====== Command number 91 ======"
+sudo apt-get remove certbot
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 475 ======\e[0m"; exit 1; fi
+echo "====== Command number 92 ======"
+sudo snap install --classic certbot
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 478 ======\e[0m"; exit 1; fi
+echo "====== Command number 93 ======"
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 481 ======\e[0m"; exit 1; fi
+echo "====== Command number 94 ======"
+sudo certbot --nginx
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 484 ======\e[0m"; exit 1; fi
+echo "====== Command number 95 ======"
+sudo apt-get install tmux
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 487 ======\e[0m"; exit 1; fi
+echo "====== Command number 96 ======"
+sudo apt-get remove docker docker-engine docker.io containerd runc
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 490 ======\e[0m"; exit 1; fi
+echo "====== Command number 97 ======"
+sudo apt-get install ca-certificates curl gnupg lsb-release
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 493 ======\e[0m"; exit 1; fi
+echo "====== Command number 98 ======"
+sudo mkdir -p /etc/apt/keyrings
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 496 ======\e[0m"; exit 1; fi
+echo "====== Command number 99 ======"
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 499 ======\e[0m"; exit 1; fi
+echo "====== Command number 100 ======"
+echo \
+"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+$(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 502 ======\e[0m"; exit 1; fi
+echo "====== Command number 101 ======"
+sudo apt-get update
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 507 ======\e[0m"; exit 1; fi
+echo "====== Command number 102 ======"
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 510 ======\e[0m"; exit 1; fi
+echo "====== Command number 103 ======"
+docker run -it -p 4000:4000 bitgosdk/express:latest --port 4000 --disablessl -e prod
+if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 513 ======\e[0m"; exit 1; fi
+</pre>
+        </div>
+            
+        </div>
+    </div>
+    <script>
+        let variable1 = '';
+        let variable2 = '';
+        let variable3 = '';
+        let variable4 = '';
+        let variable5 = '';
+        let variable6 = '';
+        let variable7 = '';
+        let variable8 = '';
+        let variable9 = '';
+        let variable10 = '';
+        let variable11 = '';
+        let variable12 = '';
+        let variable13 = '';
+        let variable14 = '';
+        let variable15 = '';
+        let variable16 = '';
+        let variable17 = '';
+        let variable18 = '';
+        let variable19 = '';
+        let variable20 = '';
+        let variable21 = '';
+        let variable22 = '';
+        let variable23 = '';
+        let variable24 = '';
+        let variable25 = '';
+        let variable26 = '';
+        let variable27 = '';
+        let previousHighlightedElement = null;
+
+        document.getElementById('inputText1').addEventListener('input', function() {
+            variable1 = this.value;
+            variable2 = this.value;
+            variable3 = this.value;
+            variable4 = this.value;
+            variable5 = this.value;
+            variable6 = this.value;
+            variable7 = this.value;
+            variable8 = this.value;
+            variable9 = this.value;
+            variable10 = this.value;
+            variable11 = this.value;
+            variable12 = this.value;
+            variable13 = this.value;
+            variable14 = this.value;
+            variable15 = this.value;
+            variable16 = this.value;
+        });
+
+        document.getElementById('inputText2').addEventListener('input', function() {
+            variable17 = this.value;
+            variable18 = this.value;
+            variable19 = this.value;
+            variable20 = this.value;
+            variable21 = this.value;
+            variable22 = this.value;
+            variable23 = this.value;
+            variable24 = this.value;
+            variable25 = this.value;
+            variable26 = this.value;
+
+        });
+        document.getElementById('inputText3').addEventListener('input', function() {
+            variable27 = this.value;
+        });
+    
+        function insertVariables(event) {
+            const codeLine = event.currentTarget;
+            let lineText = codeLine.innerText;
+
+            // Replace placeholders VAR1 and VAR2 with the input values
+            lineText = lineText.replace('ad1', variable1).replace('ad2', variable2).replace('ad3', variable3).replace('ad4', variable4)
+            .replace('ad5', variable5).replace('ad6', variable6).replace('ad7', variable7).replace('ad8', variable8).replace('ad9', variable9)
+            .replace('ad10', variable10).replace('ad11', variable11).replace('ad12', variable12).replace('ad13', variable13).replace('ad14', variable14)
+            .replace('ad15', variable15).replace('ad16', variable16)
+            .replace('u1', variable17).replace('u2', variable18).replace('u3', variable19).replace('u4', variable20).replace('u5', variable21).replace('u6', variable22)
+            .replace('u7', variable23).replace('u8', variable24).replace('u9', variable25).replace('u10', variable26).replace('ipname', variable27);
+            codeLine.innerText = lineText;
+
+            if (previousHighlightedElement) {
+                previousHighlightedElement.classList.remove('highlighted');
+            }
+
+            codeLine.classList.add('highlighted');
+            previousHighlightedElement = codeLine;
+
+            // Copy the modified text to the clipboard
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = lineText;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+            codeLine.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+           //alert('Text copied to clipboard: ' + lineText);
+        }
+    </script>
+</body>
+</html>
