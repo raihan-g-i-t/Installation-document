@@ -258,7 +258,7 @@ echo "====== Command number 47 ======"
 cd /etc/nginx/sites-available/
 if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 139 ======\e[0m"; exit 1; fi
 echo "====== Command number 48 ======"
-sudo tee ad1 &gt; /dev/null &lt;&lt;EOF
+sudo tee ad1 &gt; /dev/null &lt;&lt;'EOF'
 map $http_upgrade $type {
     default "web";
     websocket "ws";
@@ -310,7 +310,7 @@ location / {
 EOF
 if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 142 ======\e[0m"; exit 1; fi
 echo "====== Command number 49 ======"
-sudo tee u1 &gt; /dev/null &lt;&lt;EOF
+sudo tee u1 &gt; /dev/null &lt;&lt;'EOF'
 server {
         root /var/www/u2/;
         index index.php index.html index.htm index.nginx-debian.html;
@@ -348,7 +348,7 @@ echo "====== Command number 57 ======"
 cd ad6/
 if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 229 ======\e[0m"; exit 1; fi
 echo "====== Command number 58 ======"
-sudo tee .env &gt; /dev/null &lt;&lt;EOF
+sudo tee .env &gt; /dev/null &lt;&lt;'EOF'
 APP_NAME=Laravel
 APP_ENV=production
 APP_KEY=
@@ -439,7 +439,7 @@ echo "====== Command number 67 ======"
 cd /etc/supervisor/conf.d/
 if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 320 ======\e[0m"; exit 1; fi
 echo "====== Command number 68 ======"
-sudo tee cron.conf &gt; /dev/null &lt;&lt;EOF
+sudo tee cron.conf &gt; /dev/null &lt;&lt;'EOF'
 [program:sockets]
 process_name=sockets
 directory=/var/www/ad9/
@@ -518,7 +518,7 @@ echo "====== Command number 74 ======"
 cd u7/
 if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 399 ======\e[0m"; exit 1; fi
 echo "====== Command number 75 ======"
-sudo tee .env &gt; /dev/null &lt;&lt;EOF
+sudo tee .env &gt; /dev/null &lt;&lt;'EOF'
 NEXT_PUBLIC_BASE_URL ='https://ad14'
 NEXT_PUBLIC_WS_URL = 'wss://ad15/app/test'
 NEXT_PUBLIC_HOST_SOCKET ="ad16"
