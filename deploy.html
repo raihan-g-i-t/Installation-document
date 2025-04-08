@@ -104,6 +104,7 @@
         <div class="header">Tradexpro Installation</div>
         <div class="input-container">
             <input id="inputText1" type="text" placeholder="Admin">
+            <input id="inputText4" type="text" placeholder="Application Name">
 
             
         </div>
@@ -511,7 +512,7 @@ echo "====== Command number 72 ======"
 cd /var/www/
 if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 393 ======\e[0m"; exit 1; fi
 echo "====== Command number 73 ======"
-git clone -b core-main https://gitlab.com/itech-repo/cpocket-exchange/cpocket-exchange-in-nextjs.git u6/
+git clone -b core-main https://gitlab.com/itech-repo/cpocket-exchange/cpocket-exchange-in-nextjs.git user6/
 if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 396 ======\e[0m"; exit 1; fi
 echo "====== Command number 74 ======"
 cd u7/
@@ -524,7 +525,7 @@ NEXT_PUBLIC_HOST_SOCKET ="ad16"
 NEXT_PUBLIC_HOSTED_CLIENT_URL = 'https://u8/'
 NEXT_PUBLIC_SECRET_KEY="h0vWu6MkInNlWHJVfIXmHbIbC66cQvlbSUQI09Whbp"
 NEXT_PUBLIC_CRISP_ID="16ec5ccf-1e65-4a97-bac7-147137e085a0"
-NEXT_PUBLIC_APP_NAME="Your Application Name"
+NEXT_PUBLIC_APP_NAME="app1 Exchange"
 NEXT_PUBLIC_FAVICON="YOUR FAVICON URL"
 NEXT_PUBLIC_PUBLISH_KEY = "your_key"
 
@@ -532,8 +533,8 @@ NEXT_PUBLIC_STRIPE_SECRET_KEY= "your_key"
 NEXT_PUBLIC_PAYPAL_CLIENT_KEY="your_key"
 NEXT_PUBLIC_WSS_PORT="6006"
 
-NEXT_PUBLIC_SEO_TITLE = "Tradexpro is a Crypto Currency Exchange Platform."
-NEXT_PUBLIC_SEO_DES = "Tradexpro is a Crypto Currency Exchange Platform."
+NEXT_PUBLIC_SEO_TITLE = "app2 Exchange"
+NEXT_PUBLIC_SEO_DES = "app3 is a Crypto Currency Exchange Platform."
 NEXT_PUBLIC_SEO_KEYWORDS = "exchange,trading,spottrading,Crypto"
 
 NEXT_PUBLIC_FACEBOOK_APP_ID = "your_app_id"
@@ -663,6 +664,9 @@ if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 513 ====
         let variable25 = '';
         let variable26 = '';
         let variable27 = '';
+        let variable28 = '';
+        let variable29 = '';
+        let variable30 = '';
         let previousHighlightedElement = null;
 
         document.getElementById('inputText1').addEventListener('input', function() {
@@ -700,6 +704,11 @@ if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 513 ====
         document.getElementById('inputText3').addEventListener('input', function() {
             variable27 = this.value;
         });
+        document.getElementById('inputText4').addEventListener('input', function() {
+            variable28 = this.value;
+            variable29 = this.value;
+            variable30 = this.value;
+        });
     
         function insertVariables(event) {
             const codeLine = event.currentTarget;
@@ -710,8 +719,9 @@ if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 513 ====
             .replace('ad5', variable5).replace('ad6', variable6).replace('ad7', variable7).replace('ad8', variable8).replace('ad9', variable9)
             .replace('ad10', variable10).replace('ad11', variable11).replace('ad12', variable12).replace('ad13', variable13).replace('ad14', variable14)
             .replace('ad15', variable15).replace('ad16', variable16)
-            .replace('u1', variable17).replace('u2', variable18).replace('u3', variable19).replace('u4', variable20).replace('u5', variable21).replace('u6', variable22)
-            .replace('u7', variable23).replace('u8', variable24).replace('u9', variable25).replace('u10', variable26).replace('ipname', variable27);
+            .replace('u1', variable17).replace('u2', variable18).replace('u3', variable19).replace('u4', variable20).replace('u5', variable21).replace('user6', variable22)
+            .replace('u7', variable23).replace('u8', variable24).replace('u9', variable25).replace('u10', variable26).replace('ipname', variable27)
+            .replace('app1', variable28).replace('app2', variable29).replace('app3', variable30);
             codeLine.innerText = lineText;
 
             if (previousHighlightedElement) {
