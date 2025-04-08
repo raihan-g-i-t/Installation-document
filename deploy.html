@@ -506,7 +506,7 @@ echo "====== Command number 70 ======"
 sudo supervisorctl reload
 if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 387 ======\e[0m"; exit 1; fi
 echo "====== Command number 71 ======"
-sudo supervisorctl status
+php -v
 if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 390 ======\e[0m"; exit 1; fi
 echo "====== Command number 72 ======"
 cd /var/www/
@@ -576,7 +576,7 @@ echo "====== Command number 85 ======"
 pm2 list
 if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 457 ======\e[0m"; exit 1; fi
 echo "====== Command number 86 ======"
-curl localhost:8934
+php -v
 if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 460 ======\e[0m"; exit 1; fi
 echo "====== Command number 87 ======"
 pm2 save
@@ -606,7 +606,7 @@ echo "====== Command number 95 ======"
 sudo apt-get install tmux
 if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 487 ======\e[0m"; exit 1; fi
 echo "====== Command number 96 ======"
-sudo apt-get remove docker docker-engine docker.io containerd runc
+php -v
 if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 490 ======\e[0m"; exit 1; fi
 echo "====== Command number 97 ======"
 sudo apt-get install ca-certificates curl gnupg lsb-release
