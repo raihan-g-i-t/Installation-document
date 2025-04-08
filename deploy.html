@@ -518,7 +518,7 @@ echo "====== Command number 74 ======"
 cd u7/
 if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 399 ======\e[0m"; exit 1; fi
 echo "====== Command number 75 ======"
-sudo tee cron.conf &gt; /dev/null &lt;&lt;EOF
+sudo tee .env &gt; /dev/null &lt;&lt;EOF
 NEXT_PUBLIC_BASE_URL ='https://ad14'
 NEXT_PUBLIC_WS_URL = 'wss://ad15/app/test'
 NEXT_PUBLIC_HOST_SOCKET ="ad16"
@@ -567,7 +567,7 @@ echo "====== Command number 82 ======"
 cd node-wallet/
 if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 448 ======\e[0m"; exit 1; fi
 echo "====== Command number 83 ======"
-cp .env.example .env
+cp .env.example .env && yarn install
 if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 451 ======\e[0m"; exit 1; fi
 echo "====== Command number 84 ======"
 pm2 start yarn --interpreter bash --name NodeEnd -- start -p 8934
