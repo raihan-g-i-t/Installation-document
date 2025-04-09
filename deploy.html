@@ -180,11 +180,11 @@ echo "====== Command number 21 ======"
 sudo systemctl start mysql.service
 if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 61 ======\e[0m"; exit 1; fi
 echo "====== Command number 22 ======"
-mysql
+mysql -e "
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Pass.321';
+FLUSH PRIVILEGES;
+CREATE DATABASE exchange;"
 if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 64 ======\e[0m"; exit 1; fi
-echo "====== Command number 23 ======"
-php -v
-if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 67 ======\e[0m"; exit 1; fi
 echo "====== Command number 24 ======"
 php -v
 if [ $? -ne 0 ]; then echo -e "\e[33m====== This command failed at line 70 ======\e[0m"; exit 1; fi
