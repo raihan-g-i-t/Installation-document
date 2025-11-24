@@ -479,51 +479,54 @@ NEXT_PUBLIC_APPLE_REDIRECT_URI = "https://u3/signin"</pre></div>
         </div>
     </div>
     <script>
-        let variable1 = '';
-        let variable2 = '';
-        let variable3 = '';
-        let variable4 = '';
-        let variable5 = '';
-        let variable6 = '';
-        let variable7 = '';
-        let variable8 = '';
-        let variable9 = '';
+
+        let variable = [];
         let previousHighlightedElement = null;
 
-        document.getElementById('inputText1').addEventListener('input', function() {
-            variable1 = this.value;
-        });
+        for(let i=1; i<=5; i++){
+            document.getElementById('inputText1').addEventListener('input', function() {
+            variable[i] = this.value;
+            });
+        }
 
-        document.getElementById('inputText1').addEventListener('input', function() {
-            variable2 = this.value;
+        for(i=6; i<=8; i++){
+            document.getElementById('inputText1').addEventListener('input', function() {
+            variable[i] = this.value;
         });
-        document.getElementById('inputText1').addEventListener('input', function() {
-            variable3 = this.value;
-        });
-        document.getElementById('inputText1').addEventListener('input', function() {
-            variable4 = this.value;
-        });
-        document.getElementById('inputText1').addEventListener('input', function() {
-            variable5 = this.value;
-        });
-        document.getElementById('inputText6').addEventListener('input', function() {
-            variable6 = this.value;
-        });
-        document.getElementById('inputText6').addEventListener('input', function() {
-            variable7 = this.value;
-        });
-        document.getElementById('inputText6').addEventListener('input', function() {
-            variable8 = this.value;
-        });
+        }
+
         document.getElementById('inputText9').addEventListener('input', function() {
-            variable9 = this.value;
+            variable[9] = this.value;
         });
+    
+        // document.getElementById('inputText1').addEventListener('input', function() {
+        //     variable[2] = this.value;
+        // });
+        // document.getElementById('inputText1').addEventListener('input', function() {
+        //     variable[3] = this.value;
+        // });
+        // document.getElementById('inputText1').addEventListener('input', function() {
+        //     variable[4] = this.value;
+        // });
+        // document.getElementById('inputText1').addEventListener('input', function() {
+        //     variable[5] = this.value;
+        // });
+
+        // document.getElementById('inputText6').addEventListener('input', function() {
+        //     variable[6] = this.value;
+        // });
+        // document.getElementById('inputText6').addEventListener('input', function() {
+        //     variable[7] = this.value;
+        // });
+        // document.getElementById('inputText6').addEventListener('input', function() {
+        //     variable[8] = this.value;
+        // });
         function insertVariables(event) {
             const codeLine = event.currentTarget;
             let lineText = codeLine.innerText;
 
             // Replace placeholders VAR1 and VAR2 with the input values
-            lineText = lineText.replace('ad1', variable1).replace('ad2', variable2).replace('ad3', variable3).replace('ad4', variable4).replace('ad5', variable5).replace('u1', variable6).replace('u2', variable7).replace('u3', variable8).replace('ipname', variable9);
+            lineText = lineText.replace('ad1', variable[1]).replace('ad2', variable[2]).replace('ad3', variable[3]).replace('ad4', variable[4]).replace('ad5', variable[5]).replace('u1', variable[6]).replace('u2', variable[7]).replace('u3', variable[8]).replace('ipname', variable[9]);
             codeLine.innerText = lineText;
 
             if (previousHighlightedElement) {
@@ -542,7 +545,7 @@ NEXT_PUBLIC_APPLE_REDIRECT_URI = "https://u3/signin"</pre></div>
             document.body.removeChild(tempTextArea);
             codeLine.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-           //alert('Text copied to clipboard: ' + lineText);
+        //    alert('Text copied to clipboard: ' + lineText);
         }
     </script>
 </body>
