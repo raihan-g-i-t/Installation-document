@@ -477,15 +477,15 @@ stopwaitsecs=3600
 stdout_logfile=/root/supervisor_log
 
 
-[program:trade_price]
-process_name=trade_price
-directory=/var/www/ad12/
-command=php artisan trading:price-from-api
-autostart=true
-autorestart=true
-startsecs=0
-redirect_stderr=true
-stopwaitsecs=3600
+#[program:trade_price]
+#process_name=trade_price
+#directory=/var/www/ad12/
+#command=php artisan trading:price-from-api
+#autostart=true
+#autorestart=true
+#startsecs=0
+#redirect_stderr=true
+#stopwaitsecs=3600
 
     
 [program:trade_bot]
